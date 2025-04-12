@@ -107,7 +107,7 @@ const UserProfile = () => {
                     events.map((event) => (
                         <div key={event.id} className="event-card">
                             <h3>{event.EventName}</h3>
-                            <p>Organization: {user.displayName}</p>
+                            <p>Organization: {event.Organization}</p>
                             <p>Description: {event.EventDescription}</p>
                             <p>Attendees: {event.Attendants}</p>
                             <p>Location: {event.Location}</p>

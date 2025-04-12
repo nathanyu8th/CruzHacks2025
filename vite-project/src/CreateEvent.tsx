@@ -9,6 +9,7 @@ import { useNavigate } from "react-router-dom";
 
 const CreateEvent = ({events, setEvents}) => {
     //const [name, setName] = useState("");
+    const [organization, setOrganization] = useState("");
     const [eventDescription, setEventDescription] = useState("");
     const [eventName, setEventName] = useState("");
     const [date, setDate] = useState("");
@@ -34,6 +35,7 @@ const CreateEvent = ({events, setEvents}) => {
         const newEvent = {
             EventName: eventName,
             EventDescription: eventDescription,
+            Organization: organization,
             Date: fullDate,
             Username: user.displayName,
             Attendants: 0,
@@ -61,6 +63,14 @@ const CreateEvent = ({events, setEvents}) => {
 
     return (
         <form onSubmit={handleSubmit}>
+            <label htmlFor="eventName">
+                Organization (Username):
+                <input
+                    type="text"
+                    value={organization}
+                    onChange={(e) => setOrganization(e.target.value)}
+                />
+            </label>
             <label htmlFor="eventName">
                 Event Name:
                 <input
