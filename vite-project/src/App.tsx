@@ -1,6 +1,8 @@
 import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import './App.css'
+import Dashboard from './Dashboard';
+import Home from './Home';
 import SignUpForm from './SignUpForm';
 import Login from './Login';
 import {BrowserRouter, Routes, Route} from 'react-router-dom'
@@ -10,9 +12,11 @@ function App() {
   return (
     
     <BrowserRouter>
+    <Home></Home>
     <Routes>
       <Route path='/signup' element={<SignUpForm />}></Route>
       <Route path='/login' element={<Login />}></Route>
+      <Route path='/dashboard' element={<Dashboard />}></Route>
     </Routes>
     </BrowserRouter>
   
