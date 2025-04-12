@@ -1,10 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { auth, db } from "./firebase/firebase";
 import { getDocs, collection } from "firebase/firestore";
+import { useNavigate } from "react-router-dom";
 
 const MyRSVPEvents = () => {
   const user = auth.currentUser;
   const [myEvents, setMyEvents] = useState<EventType[]>([]);
+    const navigate = useNavigate();
+
 
   useEffect(() => {
     if (!user) return;
@@ -73,6 +76,7 @@ const MyRSVPEvents = () => {
           </div>
         ))
       )}
+      <button onClick={() => navigate("/profile")}>View My RSVPs</button>
     </div>
   );
 };
