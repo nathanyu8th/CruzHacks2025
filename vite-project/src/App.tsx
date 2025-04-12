@@ -7,10 +7,11 @@ import SignUpForm from './SignUpForm';
 import Login from './Login';
 import UserProfile from './UserProfile';
 import CreateEvent from './CreateEvent';
+import EditProfile from './EditProfile';
 import {BrowserRouter, Routes, Route} from 'react-router-dom'
 
 function App() {
-
+  const [events, setEvents] = useState<any[]>([]);
   return (
     
     <BrowserRouter>
@@ -20,7 +21,8 @@ function App() {
       <Route path='/login' element={<Login />}></Route>
       <Route path='/dashboard' element={<Dashboard />}></Route>
       <Route path='/profile'element={<UserProfile />}></Route>
-      <Route path='/create'element={<CreateEvent />}></Route>
+      <Route path='/editProfile'element={<EditProfile />}></Route>
+      <Route path='/create'element={<CreateEvent events={events} setEvents={setEvents}/>}></Route>
     </Routes>
     </BrowserRouter>
   

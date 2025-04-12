@@ -41,7 +41,10 @@ const Dashboard = () => {
         const eventRef = doc(db, "Events", id);
         await updateDoc(eventRef, {
             Attendants: increment(1),
-            RSVPUsers: arrayUnion(user.uid)
+            RSVPUsers: arrayUnion({
+                uid: user.uid,
+                displayName: user.displayName,
+              }),
         });
         
         getEvents();
@@ -60,7 +63,7 @@ const Dashboard = () => {
                 Date: data.Date?.toDate(), // Convert Firestore Timestamp to JS Date
             };
         }).filter((event) => event.Date && event.Date >= now);
-        
+
         setEvents(events);
         console.log(events);
     };
@@ -102,7 +105,7 @@ const Dashboard = () => {
                                     minute: "2-digit",
                                 })}
                             </p>
-                            <button disabled={event.RSVPUsers?.includes(user.uid)} onClick={() => handleRSVP(event.id)}>RSVP</button>
+                            <button disabled={event.RSVPUsers?.some(u => u.uid === user.uid)} onClick={() => handleRSVP(event.id)}>RSVP</button>
                             <button onClick={() => handleDelete(event.id)}>Delete</button>
                         </div>
                     ))
