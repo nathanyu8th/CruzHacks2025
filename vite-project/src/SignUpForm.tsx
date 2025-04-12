@@ -22,13 +22,9 @@ const SignUpForm = () => {
 
     const navigate = useNavigate();
 
-    const handleBackClick = () => {
-        navigate('/');
-    };
-
   return (
     <div className='signup-container'>
-    <button onClick={handleBackClick} style={{ position: 'absolute', top: '10px', left: '10px' }}>
+    <button onClick={function(){navigate('/')}} style={{ position: 'absolute', top: '10px', left: '10px' }}>
     Back
     </button>
         <form className='signup-form' onSubmit={handleSubmit}>
