@@ -23,7 +23,7 @@ const Dashboard = () => {
     };
 
     //get events function
-    const getEmployees = async () => {
+    const getEvents = async () => {
         const querySnapshot = await getDocs(collection(db, "Events"));
         //const events = querySnapshot.docs.map(doc => ({id: doc.id, ...doc.data()}));
         const events = querySnapshot.docs.map((doc) => {
@@ -43,7 +43,7 @@ const Dashboard = () => {
     };
 
     useEffect(() => {
-        getEmployees();
+        getEvents();
     }, []);
 
     return (
@@ -55,6 +55,7 @@ const Dashboard = () => {
             <button onClick={() => handleLoginClick("create")}>
                 Create A New Event!
             </button>
+            
             <div className="events-list">
                 {events.length === 0 ? (
                     <p>No events found.</p>
