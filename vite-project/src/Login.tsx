@@ -37,7 +37,7 @@ const Login = () => {
                 Password:
                 <input type='text' onChange ={(e) => setPassword(e.target.value)}/>
             </label>
-            <button type='submit'>Log In</button> <br />
+            <button type='submit' onClick={() => navigate('/dashboard')}>Log In</button> <br />
             <p>Don't Have Account? <Link to="/signup">Sign up Here</Link></p>
         </form>
     </div>

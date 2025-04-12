@@ -8,6 +8,7 @@ import UserProfile from './UserProfile';
 import EditProfile from './EditProfile';
 import CreateEvent from './CreateEvent';
 import PageWrapper from './PageWrapper';
+import MyRSVPEvents from './MyRSVPEvents';
 
 function App() {
   const [events, setEvents] = useState<any[]>([]);
@@ -60,6 +61,14 @@ function App() {
           element={
             <PageWrapper bgGradient="linear-gradient(to top, #a1c4fd, #c2e9fb)">
               <EditProfile />
+            </PageWrapper>
+          }
+        />
+        <Route
+          path="/myrsvps"
+          element={
+            <PageWrapper bgGradient="linear-gradient(to top, #a1c4fd, #c2e9fb)">
+              <MyRSVPEvents />
             </PageWrapper>
           }
         />

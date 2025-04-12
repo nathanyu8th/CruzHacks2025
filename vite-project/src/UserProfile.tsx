@@ -64,7 +64,9 @@ const UserProfile = () => {
             EventDescription?: string;
             Attendants?: number;
             Location?: string;
-            RSVPUsers?: string[];
+            RSVPUsers?: { uid: string; displayName: string }[];
+            SignInUsers?: string[];
+            IsPrivate: boolean;
         };
         
         const getEvents = async () => {
@@ -92,9 +94,8 @@ const UserProfile = () => {
             <div className="username">User Name: {username}</div>
             <div className="user-bio">Bio: </div>
             <div className="edit-profile">
-                <button onClick={() => handleLoginClick("editProfile")}>
-                    Change Bio
-                </button>
+            <button onClick={() => handleLoginClick("myrsvps")}>View My RSVPs</button>
+
                 <button onClick={() => handleLoginClick("dashboard")}>
                     Dashboard
                 </button>

@@ -15,6 +15,7 @@ const CreateEvent = ({events, setEvents}) => {
     const [date, setDate] = useState("");
     const [time, setTime] = useState("");
     const [location, setLocation] = useState("");
+    const [isPrivate, setIsPrivate] = useState(false);
 
     const navigate = useNavigate();
 
@@ -39,7 +40,8 @@ const CreateEvent = ({events, setEvents}) => {
             Date: fullDate,
             Username: user.displayName,
             Attendants: 0,
-            Location: location
+            Location: location,
+            IsPrivate: isPrivate
         };
 
         
@@ -110,6 +112,14 @@ const CreateEvent = ({events, setEvents}) => {
                     type="time"
                     value={time}
                     onChange={(e) => setTime(e.target.value)}
+                />
+            </label>
+            <label>
+                Make this event private?
+                <input
+                    type="checkbox"
+                    checked={isPrivate}
+                    onChange={(e) => setIsPrivate(e.target.checked)}
                 />
             </label>
             <br />
