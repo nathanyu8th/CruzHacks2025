@@ -19,7 +19,7 @@ const Home = () => {
 
   return (
     <div className='home-container'>
-        <div>Home</div>
+        <h1 className="heading">Home</h1>
         <button onClick={handleLoginClick}>Log In</button>
     </div>
   )
