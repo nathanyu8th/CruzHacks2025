@@ -5,6 +5,7 @@ import Dashboard from './Dashboard';
 import Home from './Home';
 import SignUpForm from './SignUpForm';
 import Login from './Login';
+import UserProfile from './UserProfile';
 import {BrowserRouter, Routes, Route} from 'react-router-dom'
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
       <Route path='/signup' element={<SignUpForm />}></Route>
       <Route path='/login' element={<Login />}></Route>
       <Route path='/dashboard' element={<Dashboard />}></Route>
+      <Route path='/profile'element={<UserProfile />}></Route>
     </Routes>
     </BrowserRouter>
   
