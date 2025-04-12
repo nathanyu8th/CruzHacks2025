@@ -6,6 +6,7 @@ import Home from './Home';
 import SignUpForm from './SignUpForm';
 import Login from './Login';
 import UserProfile from './UserProfile';
+import CreateEvent from './CreateEvent';
 import {BrowserRouter, Routes, Route} from 'react-router-dom'
 
 function App() {
@@ -19,6 +20,7 @@ function App() {
       <Route path='/login' element={<Login />}></Route>
       <Route path='/dashboard' element={<Dashboard />}></Route>
       <Route path='/profile'element={<UserProfile />}></Route>
+      <Route path='/create'element={<CreateEvent />}></Route>
     </Routes>
     </BrowserRouter>
   
