@@ -4,10 +4,17 @@ import { onAuthStateChanged } from "firebase/auth";
 import { auth, db } from "./firebase/firebase";
 
 import { useEffect } from "react";
-import { collection, getDocs, query } from "firebase/firestore";
+import { collection, getDocs, query, doc, deleteDoc } from "firebase/firestore";
 
 const Dashboard = () => {
     const navigate = useNavigate();
+    const user = auth.currentUser;
+    if (!user) {
+        navigate("/signup");
+        alert("You must be logged in to create an event.");
+        
+        return;
+    }
 
     const [events, setEvents] = useState<any[]>([]);
 
@@ -22,6 +29,12 @@ const Dashboard = () => {
         });
     };
 
+    const handleDelete = id => {
+        deleteDoc(doc(db, "Events", id));
+        const eventsCopy = events.filter(event => event.id !== id)
+        setEvents(eventsCopy)
+    }
+
     //get events function
     const getEvents = async () => {
         const querySnapshot = await getDocs(collection(db, "Events"));
@@ -34,10 +47,6 @@ const Dashboard = () => {
                 Date: data.Date?.toDate(), // Convert Firestore Timestamp to JS Date
             };
         });
-        // events.forEach((event) => {
-        //     //console.log(doc.id, "=>", doc.data());
-        //     //const jsDate = event.Date.toDate();
-        // });
         setEvents(events);
         console.log(events);
     };
@@ -55,7 +64,7 @@ const Dashboard = () => {
             <button onClick={() => handleLoginClick("create")}>
                 Create A New Event!
             </button>
-            
+
             <div className="events-list">
                 {events.length === 0 ? (
                     <p>No events found.</p>
@@ -63,7 +72,7 @@ const Dashboard = () => {
                     events.map((event) => (
                         <div key={event.id} className="event-card">
                             <h3>{event.EventName}</h3>
-                            <p>Username: {event.Username}</p>
+                            <p>Username: {user.displayName}</p>
                             <p>Description: {event.EventDescription}</p>
                             <p>
                                 {" "}
@@ -78,6 +87,8 @@ const Dashboard = () => {
                                 })}
                             </p>
                             <button>RSVP</button>
+                            <button onClick={() => handleDelete(event.id)}>Delete</button>
+                            <button>Edit</button>
                         </div>
                     ))
                 )}
