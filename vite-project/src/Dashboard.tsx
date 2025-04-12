@@ -4,11 +4,12 @@ import { onAuthStateChanged } from "firebase/auth";
 import { auth, db } from "./firebase/firebase";
 
 import { useEffect } from "react";
-import { collection, getDocs, query, doc, deleteDoc } from "firebase/firestore";
+import { collection, arrayUnion, getDocs, query, doc, deleteDoc, updateDoc, increment } from "firebase/firestore";
 
 const Dashboard = () => {
     const navigate = useNavigate();
     const user = auth.currentUser;
+    const [rsvpEvent, setRSVPEvent] = useState(false);
     if (!user) {
         navigate("/signup");
         alert("You must be logged in to create an event.");
@@ -35,10 +36,22 @@ const Dashboard = () => {
         setEvents(eventsCopy)
     }
 
+    const handleRSVP = async (id) => {
+
+        const eventRef = doc(db, "Events", id);
+        await updateDoc(eventRef, {
+            Attendants: increment(1),
+            RSVPUsers: arrayUnion(user.uid)
+        });
+        
+        getEvents();
+        setRSVPEvent(true)
+    }
+
     //get events function
     const getEvents = async () => {
         const querySnapshot = await getDocs(collection(db, "Events"));
-        //const events = querySnapshot.docs.map(doc => ({id: doc.id, ...doc.data()}));
+        const now = new Date();
         const events = querySnapshot.docs.map((doc) => {
             const data = doc.data();
             return {
@@ -46,7 +59,8 @@ const Dashboard = () => {
                 ...data,
                 Date: data.Date?.toDate(), // Convert Firestore Timestamp to JS Date
             };
-        });
+        }).filter((event) => event.Date && event.Date >= now);
+        
         setEvents(events);
         console.log(events);
     };
@@ -72,8 +86,10 @@ const Dashboard = () => {
                     events.map((event) => (
                         <div key={event.id} className="event-card">
                             <h3>{event.EventName}</h3>
-                            <p>Username: {user.displayName}</p>
+                            <p>Organization: {user.displayName}</p>
                             <p>Description: {event.EventDescription}</p>
+                            <p>Attendees: {event.Attendants}</p>
+                            <p>Location: {event.Location}</p>
                             <p>
                                 {" "}
                                 Date:{" "}
@@ -86,9 +102,8 @@ const Dashboard = () => {
                                     minute: "2-digit",
                                 })}
                             </p>
-                            <button>RSVP</button>
+                            <button disabled={event.RSVPUsers?.includes(user.uid)} onClick={() => handleRSVP(event.id)}>RSVP</button>
                             <button onClick={() => handleDelete(event.id)}>Delete</button>
-                            <button>Edit</button>
                         </div>
                     ))
                 )}

@@ -13,6 +13,7 @@ const CreateEvent = ({events, setEvents}) => {
     const [eventName, setEventName] = useState("");
     const [date, setDate] = useState("");
     const [time, setTime] = useState("");
+    const [location, setLocation] = useState("");
 
     const navigate = useNavigate();
 
@@ -35,7 +36,8 @@ const CreateEvent = ({events, setEvents}) => {
             EventDescription: eventDescription,
             Date: fullDate,
             Username: user.displayName,
-            Attendants: 0
+            Attendants: 0,
+            Location: location
         };
 
         
@@ -73,6 +75,14 @@ const CreateEvent = ({events, setEvents}) => {
                     type="text"
                     value={eventDescription}
                     onChange={(e) => setEventDescription(e.target.value)}
+                />
+            </label>
+            <label htmlFor="eventName">
+                Location:
+                <input
+                    type="text"
+                    value={location}
+                    onChange={(e) => setLocation(e.target.value)}
                 />
             </label>
             <label>
