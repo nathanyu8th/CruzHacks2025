@@ -3,6 +3,7 @@ import './SignUpForm.css'
 import { Link } from 'react-router-dom'
 import {auth} from './firebase/firebase'
 import { signInWithEmailAndPassword } from 'firebase/auth'
+import { useNavigate } from 'react-router-dom';
 
 const Login = () => {
     
@@ -19,8 +20,13 @@ const Login = () => {
         }
     }
 
+    const navigate = useNavigate();
+
   return (
     <div className='signup-container'>
+        <button onClick={function(){navigate('/')}} style={{ position: 'absolute', top: '10px', left: '10px' }}>
+        Back
+        </button>
         <form className='signup-form' onSubmit={handleSubmit}>
             <h2>Login</h2>
             <label htmlFor='email'>

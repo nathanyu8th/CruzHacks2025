@@ -7,21 +7,19 @@ const Home = () => {
     const navigate = useNavigate();
 
     const handleLoginClick = () => {
-        onAuthStateChanged(auth, (user) => {
-            if (user) {
-                navigate('/dashboard');
-            } else{
-                navigate('/signup');
-            }
-            
-        })
-        
+        const user = auth.currentUser;
+        if (user) {
+          navigate('/dashboard');
+        } else {
+          navigate('/signup');
+        }
     };
+      
 
 
   return (
     <div className='home-container'>
-        <div>Home</div>
+        <h1 className="heading">Home</h1>
         <button onClick={handleLoginClick}>Log In</button>
     </div>
   )

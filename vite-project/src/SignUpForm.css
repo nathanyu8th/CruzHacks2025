@@ -1,15 +1,15 @@
 /*Sign Up Form */
-
 * {
     margin: 0;
 }
-.signup-container {
+/* .signup-container {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
+    width: 100vh;
     background-color: #3498db;
-}
+} */
 
 .signup-form {
     background: rgba(255, 255, 255, 0.8);
@@ -25,7 +25,12 @@
 
 .signup-container label {
     display: block;
+    color: #333;
     margin: 10px 0;
+}
+
+.signup-container p {
+    color: #333;
 }
 
 .signup-form input {

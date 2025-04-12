@@ -3,6 +3,7 @@ import './SignUpForm.css'
 import { Link } from 'react-router-dom'
 import {auth} from './firebase/firebase'
 import { createUserWithEmailAndPassword, updateProfile } from 'firebase/auth'
+import { useNavigate } from 'react-router-dom';
 
 const SignUpForm = () => {
     
@@ -25,11 +26,16 @@ const SignUpForm = () => {
         }
     }
 
+    const navigate = useNavigate();
+
     // auth.currentUser.displayName
     // auth.currentUser.email
     // auth.currentUser.uid
   return (
     <div className='signup-container'>
+    <button onClick={function(){navigate('/')}} style={{ position: 'absolute', top: '10px', left: '10px' }}>
+    Back
+    </button>
         <form className='signup-form' onSubmit={handleSubmit}>
             <h2>Sign-Up</h2>
             <label htmlFor='username'>
