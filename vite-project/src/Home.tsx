@@ -7,16 +7,14 @@ const Home = () => {
     const navigate = useNavigate();
 
     const handleLoginClick = () => {
-        onAuthStateChanged(auth, (user) => {
-            if (user) {
-                navigate('/dashboard');
-            } else{
-                navigate('/signup');
-            }
-            
-        })
-        
+        const user = auth.currentUser;
+        if (user) {
+          navigate('/dashboard');
+        } else {
+          navigate('/signup');
+        }
     };
+      
 
 
   return (
