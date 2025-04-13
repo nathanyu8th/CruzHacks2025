@@ -8,9 +8,14 @@ import UserProfile from './UserProfile';
 import EditProfile from './EditProfile';
 import CreateEvent from './CreateEvent';
 import PageWrapper from './PageWrapper';
+<<<<<<< HEAD
 import LoginPage from './LoginPage';
 import SignUpPage from './SignUpPage'
 import EventDashboard from './EventDashboard';
+=======
+import MyRSVPEvents from './MyRSVPEvents';
+import { JoinPrivate } from './JoinPrivate';
+>>>>>>> eaaee5cfe5ca066d70e597461c7a36b93ef943c6
 
 function App() {
   const [events, setEvents] = useState<any[]>([]);
@@ -63,6 +68,22 @@ function App() {
           element={
             <PageWrapper bgGradient="linear-gradient(to top, #a1c4fd, #c2e9fb)">
               <EditProfile />
+            </PageWrapper>
+          }
+        />
+        <Route
+          path="/myrsvps"
+          element={
+            <PageWrapper bgGradient="linear-gradient(to top, #a1c4fd, #c2e9fb)">
+              <MyRSVPEvents />
+            </PageWrapper>
+          }
+        />
+        <Route
+          path="/private"
+          element={
+            <PageWrapper bgGradient="linear-gradient(to top, #a1c4fd, #c2e9fb)">
+              <JoinPrivate />
             </PageWrapper>
           }
         />

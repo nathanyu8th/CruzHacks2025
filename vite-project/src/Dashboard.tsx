@@ -10,6 +10,8 @@ const Dashboard = () => {
     const navigate = useNavigate();
     const user = auth.currentUser;
     const [rsvpEvent, setRSVPEvent] = useState(false);
+    
+
     if (!user) {
         navigate("/signup");
         alert("You must be logged in to create an event.");
@@ -51,18 +53,31 @@ const Dashboard = () => {
         setRSVPEvent(true)
     }
 
+    type EventType = {
+        id: string;
+        Date: Date;
+        Username?: string;
+        EventName?: string;
+        EventDescription?: string;
+        Attendants?: number;
+        Location?: string;
+        RSVPUsers?: { uid: string; displayName: string }[];
+        SignInUsers?: string[];
+        IsPrivate: boolean;
+    };
+
     //get events function
     const getEvents = async () => {
         const querySnapshot = await getDocs(collection(db, "Events"));
         const now = new Date();
-        const events = querySnapshot.docs.map((doc) => {
+        const events: EventType[] = querySnapshot.docs.map((doc) => {
             const data = doc.data();
             return {
-                id: doc.id,
-                ...data,
-                Date: data.Date?.toDate(), // Convert Firestore Timestamp to JS Date
-            };
-        }).filter((event) => event.Date && event.Date >= now);
+              id: doc.id,
+              ...data,
+              Date: data.Date?.toDate(),
+            } as EventType;
+          }).filter((event) => event.Date && event.Date >= now && !event.IsPrivate);
 
         setEvents(events);
         console.log(events);
@@ -81,6 +96,9 @@ const Dashboard = () => {
             <button onClick={() => handleLoginClick("create")}>
                 Create A New Event!
             </button>
+            <button onClick={() => handleLoginClick("private")}>
+                Join a Private Event!
+            </button>
 
             <div className="events-list">
                 {events.length === 0 ? (
@@ -89,7 +107,7 @@ const Dashboard = () => {
                     events.map((event) => (
                         <div key={event.id} className="event-card">
                             <h3>{event.EventName}</h3>
-                            <p>Organization: {user.displayName}</p>
+                            <p>Organization: {event.Organization}</p>
                             <p>Description: {event.EventDescription}</p>
                             <p>Attendees: {event.Attendants}</p>
                             <p>Location: {event.Location}</p>
