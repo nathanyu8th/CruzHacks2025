@@ -13,8 +13,8 @@ const Dashboard = () => {
     
 
     if (!user) {
-        navigate("/signup");
-        alert("You must be logged in to create an event.");
+        navigate("/login");
+        //alert("You must be logged in to create an event.");
         
         return;
     }
