@@ -38,13 +38,13 @@ const UserProfile = () => {
         
     
         if (user) {
-          console.log("User ID:", user.uid);
-          console.log("User Name:", user.displayName || "No name set");
+          //console.log("User ID:", user.uid);
+          //console.log("User Name:", user.displayName || "No name set");
 
           setUsername(user.displayName || "Error: No Name");
         } else {
             
-          console.log("No user is signed in");
+          //console.log("No user is signed in");
         }
 
         getEvents();
@@ -87,7 +87,7 @@ const UserProfile = () => {
             }).filter((event) => event.Username === user.displayName);
             
             setEvents(events);
-            console.log(events);
+            //console.log(events);
         };
 
         const toggleRSVP = (eventId: string) => {

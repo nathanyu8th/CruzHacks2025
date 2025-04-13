@@ -61,7 +61,7 @@ const JoinPrivate = () => {
               }).filter((event) => event.Date && event.Date >= now && !event.IsPrivate);
     
             setEvents(events);
-            console.log(events);
+            //console.log(events);
         };
 
   const handleSubmit = async (e: React.FormEvent) => {

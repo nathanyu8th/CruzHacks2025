@@ -55,8 +55,8 @@ const CreateEvent = ({events, setEvents}) => {
         }catch (error) {
             console.log(error);
         }
-        console.log(events)
-        console.log("Selected Date:", fullDate);
+        //console.log(events)
+        //console.log("Selected Date:", fullDate);
 
         navigate("/dashboard");
         

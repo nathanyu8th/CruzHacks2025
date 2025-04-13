@@ -14,14 +14,25 @@ import {
     arrayUnion,
 } from "firebase/firestore";
 
+import { generateToken, messaging } from "./firebase/firebase";
+import { onMessage } from "firebase/messaging";
+
 const EventDashboard: React.FC = () => {
     const navigate = useNavigate();
     const [events, setEvents] = useState<any[]>([]);
     const [user, setUser] = useState<any>(null);
     const [searchTerm, setSearchTerm] = useState("");
 
+
+
     // check auth state
     useEffect(() => {
+      generateToken();
+      onMessage(messaging, (payload) => {
+        //console.log(payload);
+      })
+
+
         onAuthStateChanged(auth, (authUser) => {
             if (authUser) {
                 setUser(authUser);
