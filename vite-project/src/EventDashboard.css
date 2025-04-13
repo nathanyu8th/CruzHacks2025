@@ -1,0 +1,156 @@
+.page-wrapper {
+    background: #fefee1;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto; /* allow vertical scrolling */
+  }  
+  
+  /* NAVBAR */
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem 2rem;
+    background: black;
+    color: white;
+    align-items: center;
+  }
+  
+  .nav-title {
+    font-weight: bold;
+    font-size: 1.5rem;
+  }
+  
+  .nav-buttons {
+    display: flex;
+    gap: 1.5rem;
+  }
+  
+  .nav-button {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1rem;
+    cursor: pointer;
+  }
+  
+  .nav-button:hover {
+    text-decoration: underline;
+  }
+  
+  .profile-icon {
+    font-size: 1.2rem;
+  }
+  
+  /* WELCOME */
+  .welcome-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 3rem 2rem 2rem;
+    flex-wrap: wrap;
+  }
+  
+  .welcome-section h1 {
+    font-size: 3rem;
+    font-weight: bold;
+    color: black;
+  }
+  
+  .highlight {
+    color: #000;
+  }
+  
+  .search-bar {
+    display: flex;
+    align-items: center;
+    border-bottom: 2px solid #333;
+    padding: 0.25rem;
+    margin-top: 1rem;
+  }
+  
+  .search-bar input {
+    border: none;
+    background: transparent;
+    font-size: 1rem;
+    outline: none;
+  }
+  
+  .search-icon {
+    margin-left: 0.5rem;
+  }
+  
+  /* EVENTS */
+  .event-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+    gap: 1.5rem;
+    padding: 1rem 2rem 3rem;
+  }
+  
+  .event-card {
+    background: #a7d6f1;
+    border-radius: 12px;
+    padding: 1rem;
+    box-shadow: 4px 6px 0 rgba(0, 0, 0, 0.15);
+    position: relative;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    cursor: pointer;
+    color: black; /* ← make all text inside black */
+  }
+  
+  .event-card:hover {
+    transform: scale(1.03);
+    box-shadow: 6px 8px 12px rgba(0, 0, 0, 0.2);
+  }
+
+  .event-card h3 {
+    margin: 0 0 0.3rem;
+    font-size: 1.1rem;
+  }
+  
+  .event-card .club {
+    font-weight: bold;
+    font-size: 0.95rem;
+    margin-bottom: 0.3rem;
+  }
+  
+  .event-card p {
+    margin: 0.15rem 0;
+    font-size: 0.85rem;
+  }
+  
+  .arrow {
+    position: absolute;
+    bottom: 0.75rem;
+    right: 0.75rem;
+    font-size: 1.1rem;
+  }
+
+.rsvp-button,
+.delete-button {
+  padding: 0.4rem 0.75rem;
+  font-size: 0.85rem;
+  margin-right: 0.5rem;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  color: white;
+}
+
+.rsvp-button {
+  background-color: #0f1e25;
+}
+
+.delete-button {
+  background-color: #b93131;
+}
+
+.rsvp-button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+    color: #444;
+    border: none;
+  }
+  
+  

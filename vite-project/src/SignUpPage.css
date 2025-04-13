@@ -1,0 +1,141 @@
+/* FULL-PAGE WRAPPER */
+.page-wrapper {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    background: #fefee1;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    overflow: hidden;
+  }
+  
+  /* NAVBAR */
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background-color: black;
+    color: white;
+  }
+  
+  .nav-title {
+    font-weight: bold;
+    font-size: 1.5rem;
+  }
+  
+  .nav-buttons {
+    display: flex;
+    gap: 2rem;
+  }
+  
+  .nav-button {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1rem;
+    cursor: pointer;
+    font-weight: 500;
+  }
+  
+  .nav-button:hover {
+    text-decoration: underline;
+  }
+  
+  /* SIGNUP SECTION */
+  .signup-container {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .signup-box {
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    gap: 1rem;
+  }
+  
+  /* Text */
+  .signup-title {
+    font-size: 1.75rem;
+    font-weight: bold;
+    text-align: center;
+    color: black;
+  }
+  
+  .signup-subtitle {
+    font-size: 0.9rem;
+    margin-top: -0.5rem;
+    margin-bottom: 1rem;
+    font-weight: 500;
+    text-align: center;
+    color: black;
+  }
+  
+  .signup-label {
+    font-weight: bold;
+    font-size: 0.9rem;
+    color: black;
+  }
+  
+  /* Inputs */
+  .signup-input {
+    padding: 0.75rem;
+    font-size: 0.9rem;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    background-color: white;
+    color: #555;
+  }
+  
+  .signup-input::placeholder {
+    color: #999;
+  }
+  
+  /* Buttons */
+  .signup-button,
+  .google-button {
+    padding: 0.75rem;
+    border: none;
+    border-radius: 8px;
+    background-color: #0f1e25;
+    color: white;
+    font-size: 1rem;
+    cursor: pointer;
+  }
+  
+  /* Divider */
+  .divider {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin: 1rem 0;
+    font-size: 0.9rem;
+    color: #666;
+  }
+  
+  .divider::before,
+  .divider::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: #333;
+  }
+  
+  /* Footer */
+  .signup-footer {
+    text-align: center;
+    font-size: 0.9rem;
+    color: black;
+  }
+  
+  .signup-footer span {
+    color: blue;
+    text-decoration: underline;
+    cursor: pointer;
+  }
+  
