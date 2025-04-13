@@ -132,7 +132,7 @@ const EventDashboard: React.FC = () => {
                 <h1>
                     Welcome{" "}
                     <span className="highlight">
-                        {user?.displayName || "there"}!
+                        {user?.displayName || ""}!
                     </span>
                 </h1>
                 <div className="search-bar">

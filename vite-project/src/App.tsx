@@ -2,13 +2,8 @@
 import LoginPage from './LoginPage';
 import SignUpPage from './SignUpPage'
 import EventDashboard from './EventDashboard';
-<<<<<<< HEAD
-import MyRSVPEvents from './MyRSVPEvents';
-import JoinPrivate  from './JoinPrivate';
 import RSVPEvents from './RSVPEvents';
 import CreateNewEvent from './CreateNewEvent';
-=======
-
 import { useState } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import ClubLanding from "./ClubLanding";
@@ -22,7 +17,6 @@ import PageWrapper from "./PageWrapper";
 import MyRSVPEvents from "./MyRSVPEvents";
 import JoinPrivate from "./JoinPrivate";
 
->>>>>>> main
 
 function App() {
     const [events, setEvents] = useState<any[]>([]);
