@@ -86,30 +86,26 @@ const RSVPPage: React.FC = () => {
 
   return (
     <div className="rsvp-wrapper">
-      {/* Navbar */}
+      {/* NAVBAR */}
       <div className="navbar">
-        <div className="nav-title">ganc</div>
-        <div className="nav-buttons">
-          <button className="nav-button" onClick={() => navigate("/dashboard")}>
-            events
-          </button>
-          <button className="nav-button" onClick={() => navigate("/myrsvps")}>
-            rsvps
-          </button>
-          <button className="nav-button" onClick={() => navigate("/create")}>
-            create an event
-          </button>
-          {/* <button
-            className="nav-button"
-            onClick={() => navigate("/your-events")}
-          >
-            your events
-          </button> */}
-          <button className="nav-button" onClick={() => navigate("/profile")}>
-            👤
-          </button>
-        </div>
+      <button className="nav-title" onClick={() => navigate("/")}>
+      ganc
+      </button>
+      <div className="nav-buttons">
+        <button className="nav-button" onClick={() => navigate("/dashboard")}>
+        events
+        </button>
+        <button className="nav-button" onClick={() => navigate("/myrsvps")}>
+        rsvps
+        </button>
+        <button className="nav-button" onClick={() => navigate("/create")}>
+        create an event
+        </button>
+        <button className="nav-button" onClick={() => navigate("/profile")}>
+        👤
+        </button>
       </div>
+    </div>
 
       {/* Page Title */}
       <div className="rsvp-title">

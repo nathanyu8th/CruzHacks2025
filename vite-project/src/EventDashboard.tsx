@@ -90,42 +90,26 @@ const EventDashboard: React.FC = () => {
 
     return (
         <div className="page-wrapper">
-            {/* NAVBAR */}
-            <div className="navbar">
-                <div className="nav-title">ganc</div>
-                <div className="nav-buttons">
-                    <button
-                        className="nav-button"
-                        onClick={() => navigate("/dashboard")}
-                    >
-                        events
-                    </button>
-                    <button
-                        className="nav-button"
-                        onClick={() => navigate("/myrsvps")}
-                    >
-                        rsvps
-                    </button>
-                    <button
-                        className="nav-button"
-                        onClick={() => navigate("/create")}
-                    >
-                        create an event
-                    </button>
-                    {/* <button
-                        className="nav-button"
-                        onClick={() => navigate("/profile")}
-                    >
-                        your events
-                    </button> */}
-                    <button
-                        className="nav-button profile-icon"
-                        onClick={() => navigate("/profile")}
-                    >
-                        👤
-                    </button>
-                </div>
-            </div>
+        {/* NAVBAR */}
+        <div className="navbar">
+        <button className="nav-title" onClick={() => navigate("/")}>
+        ganc
+        </button>
+        <div className="nav-buttons">
+            <button className="nav-button" onClick={() => navigate("/dashboard")}>
+            events
+            </button>
+            <button className="nav-button" onClick={() => navigate("/myrsvps")}>
+            rsvps
+            </button>
+            <button className="nav-button" onClick={() => navigate("/create")}>
+            create an event
+            </button>
+            <button className="nav-button" onClick={() => navigate("/profile")}>
+            👤
+            </button>
+        </div>
+        </div>
 
             {/* WELCOME SECTION */}
             <div className="welcome-section">

@@ -9,13 +9,15 @@ const ClubLanding: React.FC = () => {
     <div style={{ display: 'flex', flexDirection: 'column', height: '100vh' }}>
       {/* NAVBAR */}
       <div className="navbar">
-        <div className="nav-title">ganc</div>
-        <div className="nav-buttons">
+      <button className="nav-title" onClick={() => navigate("/")}>
+      ganc
+      </button>
+      <div className="nav-buttons">
           {/* <button className="nav-button" onClick={() => navigate('/about')}>about</button> */}
           <button className="nav-button" onClick={() => navigate('/signup')}>get started</button>
           <button className="nav-button" onClick={() => navigate('/login')}>login</button>
         </div>
-      </div>
+    </div>
 
       {/* MAIN SECTION */}
       <div className="club-container">

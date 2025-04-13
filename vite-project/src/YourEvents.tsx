@@ -77,22 +77,24 @@ const YourEvents: React.FC = () => {
     <div className="dashboard-wrapper">
       {/* NAVBAR */}
       <div className="navbar">
-        <div className="nav-title">ganc</div>
-        <div className="nav-buttons">
-          <button className="nav-button" onClick={() => navigate("/dashboard")}>
-            events
-          </button>
-          <button className="nav-button" onClick={() => navigate("/myrsvps")}>
-            rsvps
-          </button>
-          <button className="nav-button" onClick={() => navigate("/create")}>
-            create an event
-          </button>
-          <button className="nav-button" onClick={() => navigate("/profile")}>
-            👤
-          </button>
-        </div>
+      <button className="nav-title" onClick={() => navigate("/")}>
+      ganc
+      </button>
+      <div className="nav-buttons">
+        <button className="nav-button" onClick={() => navigate("/dashboard")}>
+        events
+        </button>
+        <button className="nav-button" onClick={() => navigate("/myrsvps")}>
+        rsvps
+        </button>
+        <button className="nav-button" onClick={() => navigate("/create")}>
+        create an event
+        </button>
+        <button className="nav-button" onClick={() => navigate("/profile")}>
+        👤
+        </button>
       </div>
+    </div>
 
       {/* MAIN CONTENT */}
       <div className="content-wrapper">
