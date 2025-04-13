@@ -96,6 +96,9 @@ const Dashboard = () => {
             <button onClick={() => handleLoginClick("create")}>
                 Create A New Event!
             </button>
+            <button onClick={() => handleLoginClick("private")}>
+                Join a Private Event!
+            </button>
 
             <div className="events-list">
                 {events.length === 0 ? (

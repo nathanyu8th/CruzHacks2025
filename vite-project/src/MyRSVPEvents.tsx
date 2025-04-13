@@ -27,6 +27,7 @@ const MyRSVPEvents = () => {
         RSVPUsers?: { uid: string; displayName: string }[];
         SignInUsers?: string[];
         IsPrivate: boolean;
+        
     };
 
       const filtered = snapshot.docs
