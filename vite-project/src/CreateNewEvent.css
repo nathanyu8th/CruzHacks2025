@@ -39,6 +39,42 @@
     text-decoration: underline;
   }
   
+
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  @keyframes slideIn {
+    from {
+      opacity: 0;
+      transform: translateX(-50px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+  
+  @keyframes pulseGrow {
+    0% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.03);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+
+
   .profile-icon {
     font-size: 1.2rem;
   }
@@ -48,6 +84,7 @@
     max-width: 700px;
     margin: 2rem auto;
     padding: 0 2rem;
+    animation: slideIn 0.6s ease-out;
   }
   
   .create-event-container h1 {
@@ -62,6 +99,7 @@
     display: flex;
     flex-direction: column;
     gap: 1.25rem;
+    
   }
   
   .create-event-form label {
@@ -70,6 +108,7 @@
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
+    animation: fadeInUp 0.3s ease-out;
   }
   
   .create-event-form input[type="text"],
@@ -81,6 +120,7 @@
     padding: 0.5rem;
     border-radius: 6px;
     border: 1px solid #888;
+    transition: box-shadow 0.3s ease, transform 0.2s ease;
   }
   
   /* Specific checkbox label styling */
@@ -105,6 +145,7 @@
     border-radius: 6px;
     font-size: 1rem;
     cursor: pointer;
+    animation: pulseGrow 2s infinite;
   }
   
   .create-button:hover {
