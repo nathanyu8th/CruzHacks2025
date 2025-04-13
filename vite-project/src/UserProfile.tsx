@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { auth, db } from "./firebase/firebase";
 import { useNavigate } from "react-router-dom";
 import { onAuthStateChanged } from "firebase/auth";
-import { doc, collection, getDocs } from "firebase/firestore";
+import { doc, collection, getDocs, deleteDoc } from "firebase/firestore";
 
 
 
@@ -26,6 +26,11 @@ const UserProfile = () => {
         return;
     }
 
+    const handleDelete = id => {
+        deleteDoc(doc(db, "Events", id));
+        const eventsCopy = events.filter(event => event.id !== id)
+        setEvents(eventsCopy)
+    }
 
     useEffect(() => {
         const user = auth.currentUser;
@@ -138,7 +143,8 @@ const UserProfile = () => {
                                 ) : (
                                     <p>No RSVPs yet.</p>
                                 )
-                            )}
+                            )} 
+                            <button onClick={() => handleDelete(event.id)}>Delete</button>
                         </div>
                     ))
                 )}

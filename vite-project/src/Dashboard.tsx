@@ -4,18 +4,26 @@ import { onAuthStateChanged } from "firebase/auth";
 import { auth, db } from "./firebase/firebase";
 
 import { useEffect } from "react";
-import { collection, arrayUnion, getDocs, query, doc, deleteDoc, updateDoc, increment } from "firebase/firestore";
+import {
+    collection,
+    arrayUnion,
+    getDocs,
+    query,
+    doc,
+    deleteDoc,
+    updateDoc,
+    increment,
+} from "firebase/firestore";
 
 const Dashboard = () => {
     const navigate = useNavigate();
     const user = auth.currentUser;
     const [rsvpEvent, setRSVPEvent] = useState(false);
-    
 
     if (!user) {
         navigate("/login");
         //alert("You must be logged in to create an event.");
-        
+
         return;
     }
 
@@ -32,26 +40,25 @@ const Dashboard = () => {
         });
     };
 
-    const handleDelete = id => {
+    const handleDelete = (id) => {
         deleteDoc(doc(db, "Events", id));
-        const eventsCopy = events.filter(event => event.id !== id)
-        setEvents(eventsCopy)
-    }
+        const eventsCopy = events.filter((event) => event.id !== id);
+        setEvents(eventsCopy);
+    };
 
     const handleRSVP = async (id) => {
-
         const eventRef = doc(db, "Events", id);
         await updateDoc(eventRef, {
             Attendants: increment(1),
             RSVPUsers: arrayUnion({
                 uid: user.uid,
                 displayName: user.displayName,
-              }),
+            }),
         });
-        
+
         getEvents();
-        setRSVPEvent(true)
-    }
+        setRSVPEvent(true);
+    };
 
     type EventType = {
         id: string;
@@ -70,14 +77,18 @@ const Dashboard = () => {
     const getEvents = async () => {
         const querySnapshot = await getDocs(collection(db, "Events"));
         const now = new Date();
-        const events: EventType[] = querySnapshot.docs.map((doc) => {
-            const data = doc.data();
-            return {
-              id: doc.id,
-              ...data,
-              Date: data.Date?.toDate(),
-            } as EventType;
-          }).filter((event) => event.Date && event.Date >= now && !event.IsPrivate);
+        const events: EventType[] = querySnapshot.docs
+            .map((doc) => {
+                const data = doc.data();
+                return {
+                    id: doc.id,
+                    ...data,
+                    Date: data.Date?.toDate(),
+                } as EventType;
+            })
+            .filter(
+                (event) => event.Date && event.Date >= now && !event.IsPrivate
+            );
 
         setEvents(events);
         console.log(events);
@@ -123,8 +134,14 @@ const Dashboard = () => {
                                     minute: "2-digit",
                                 })}
                             </p>
-                            <button disabled={event.RSVPUsers?.some(u => u.uid === user.uid)} onClick={() => handleRSVP(event.id)}>RSVP</button>
-                            <button onClick={() => handleDelete(event.id)}>Delete</button>
+                            <button
+                                disabled={event.RSVPUsers?.some(
+                                    (u) => u.uid === user.uid
+                                )}
+                                onClick={() => handleRSVP(event.id)}
+                            >
+                                RSVP
+                            </button>
                         </div>
                     ))
                 )}
