@@ -96,13 +96,13 @@ const EventDashboard: React.FC = () => {
                 <div className="nav-buttons">
                     <button
                         className="nav-button"
-                        onClick={() => navigate("/events")}
+                        onClick={() => navigate("/dashboard")}
                     >
                         events
                     </button>
                     <button
                         className="nav-button"
-                        onClick={() => navigate("/rsvps")}
+                        onClick={() => navigate("/myrsvps")}
                     >
                         rsvps
                     </button>
@@ -114,7 +114,7 @@ const EventDashboard: React.FC = () => {
                     </button>
                     <button
                         className="nav-button"
-                        onClick={() => navigate("/your-events")}
+                        onClick={() => navigate("/profile")}
                     >
                         your events
                     </button>
@@ -141,6 +141,7 @@ const EventDashboard: React.FC = () => {
                         placeholder="search for an event"
                         value={searchTerm}
                         onChange={(e) => setSearchTerm(e.target.value)}
+                        style={{color: 'black'}}
                     />
                     <span className="search-icon">🔍</span>
                 </div>
@@ -163,7 +164,7 @@ const EventDashboard: React.FC = () => {
                             <div className="event-card" key={event.id}>
                                 <h3>{event.EventName}</h3>
                                 <p className="club">
-                                    {event.ClubName || "Unknown Club"}
+                                    {event.Organization || "Unknown Club"}
                                 </p>
                                 <p>{event.Location}</p>
                                 <p>
@@ -188,11 +189,39 @@ const EventDashboard: React.FC = () => {
                                     >
                                         RSVP
                                     </button>
+                                    <button
+                                        onClick={() => setSelectedEvent(event)}
+                                        className="info-button"
+                                    >
+                                        Info
+                                    </button>
                                 </div>
                             </div>
                         ))
                 )}
             </div>
+            {selectedEvent && (
+                <div className="modal-backdrop" onClick={() => setSelectedEvent(null)}>
+                    <div className="modal-content" onClick={(e) => e.stopPropagation()}>
+                        <h2>{selectedEvent.EventName}</h2>
+                        <p><strong>Hosted by: </strong>{selectedEvent.Organization || 'Unknown Club'}</p>
+                        <p>{selectedEvent.EventDescription || 'No description provided.'}</p>
+                        <p><strong>Location:</strong> {selectedEvent.Location || 'TBD'}</p>
+                        <p><strong>Date:</strong> {selectedEvent.Date?.toLocaleString("en-US", {
+                                        weekday: "short",
+                                        year: "numeric",
+                                        month: "long",
+                                        day: "numeric",
+                                        hour: "numeric",
+                                        minute: "2-digit",
+                                    }) || 'TBA'}</p>
+                    
+                        <button onClick={() => setSelectedEvent(null)} className="close-button">
+                            Close
+                        </button>
+                    </div>
+                </div>
+            )}
         </div>
     );
 };
