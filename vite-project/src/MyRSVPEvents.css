@@ -38,9 +38,44 @@
   .nav-button:hover {
     text-decoration: underline;
   }
+
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* @keyframes pulse {
+    0% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.03);
+    }
+    100% {
+      transform: scale(1);
+    }
+  } */
+  
+  @keyframes fadeSlideIn {
+    from {
+      opacity: 0;
+      transform: translateX(-20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
   
   .rsvp-title {
     padding: 2rem 3rem 1rem;
+    animation: fadeInUp 0.6s ease-out;
   }
   
   .rsvp-title h1 {
@@ -84,6 +119,7 @@
     box-shadow: 4px 4px 0 #ccc;
     font-weight: bold;
     color: black; /* Make all text inside yellow card black */
+    animation: fadeInUp 0.6s ease-out;
   }
   
   /* Check-in card — match height of yellow card */
@@ -97,6 +133,7 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between; /* pushes contact link to bottom */
+    animation: fadeInUp 0.6s ease-out;  
   }
   
   /* Optional: Match height with yellow card */
@@ -105,6 +142,8 @@
     gap: 2rem;
     align-items: stretch; /* ensure both cards are equal height */
     flex-wrap: wrap;
+    animation: fadeSlideIn 0.5s ease-out;
+    transition: transform 0.2s ease;
   }
   
   /* Heading text - force to black */
