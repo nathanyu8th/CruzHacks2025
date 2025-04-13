@@ -1,5 +1,9 @@
 # CruzHacks2025
 
+# Project: **ganc**
+## Run Your Club Like a Slug
+Club management doesn’t have to be chaotic. Our all-in-one platform helps you glide through attendance tracking, events, and engagement, so you can focus on what matters. Purposeful, easy, and just the right amount of slime.
+
 ## Inspiration
 Frustration of tracking attendance with spreadsheets, managing messy data, and making endless RSVP forms.
 
