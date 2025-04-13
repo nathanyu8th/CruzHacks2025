@@ -77,7 +77,7 @@ const MyRSVPEvents = () => {
           </div>
         ))
       )}
-      <button onClick={() => navigate("/profile")}>View My RSVPs</button>
+      <button onClick={() => navigate("/profile")}>Back to User Profile</button>
     </div>
   );
 };

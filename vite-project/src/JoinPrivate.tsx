@@ -10,6 +10,8 @@ const JoinPrivate = () => {
   const [event, setEvent] = useState<any | null>(null);
   const [error, setError] = useState("");
 
+  const [events, setEvents] = useState<any[]>([]);
+
   const user = auth.currentUser;
     const navigate = useNavigate();
     if (!user) {
@@ -42,9 +44,25 @@ const JoinPrivate = () => {
                 displayName: user.displayName,
                 }),
         });
-        //getEvents()
+        getEvents()
         //setRSVPEvent(true)
     }
+
+    const getEvents = async () => {
+            const querySnapshot = await getDocs(collection(db, "Events"));
+            const now = new Date();
+            const events: EventType[] = querySnapshot.docs.map((doc) => {
+                const data = doc.data();
+                return {
+                  id: doc.id,
+                  ...data,
+                  Date: data.Date?.toDate(),
+                } as EventType;
+              }).filter((event) => event.Date && event.Date >= now && !event.IsPrivate);
+    
+            setEvents(events);
+            console.log(events);
+        };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -102,7 +120,11 @@ const JoinPrivate = () => {
                 })}
             </p>
             <button disabled={event.RSVPUsers?.some(u => u.uid === user.uid)} onClick={() => handleRSVP(event.id)}>RSVP</button>
+            <button onClick={() => navigate("/dashboard")}>
+                Go Back to Dashboard
+            </button>
         </div>
+        
       )}
     </div>
   );
