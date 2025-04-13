@@ -5,18 +5,10 @@ import { useNavigate } from "react-router-dom";
 
 const MyRSVPEvents = () => {
   const user = auth.currentUser;
-  const [myEvents, setMyEvents] = useState<EventType[]>([]);
+  
     const navigate = useNavigate();
 
-
-  useEffect(() => {
-    if (!user) return;
-
-    const fetchRSVPEvents = async () => {
-      const snapshot = await getDocs(collection(db, "Events"));
-      const now = new Date();
-
-      type EventType = {
+    type EventType = {
         id: string;
         Date: Date;
         Username?: string;
@@ -29,6 +21,18 @@ const MyRSVPEvents = () => {
         IsPrivate: boolean;
         
     };
+
+    const [myEvents, setMyEvents] = useState<EventType[]>([]);
+
+
+  useEffect(() => {
+    if (!user) return;
+
+    const fetchRSVPEvents = async () => {
+      const snapshot = await getDocs(collection(db, "Events"));
+      const now = new Date();
+
+      
 
       const filtered = snapshot.docs
         .map((doc) => {
