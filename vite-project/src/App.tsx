@@ -16,6 +16,7 @@ import CreateEvent from "./CreateEvent";
 import PageWrapper from "./PageWrapper";
 import MyRSVPEvents from "./MyRSVPEvents";
 import JoinPrivate from "./JoinPrivate";
+import YourEvents from './YourEvents';
 
 
 function App() {
@@ -61,7 +62,7 @@ function App() {
           path="/profile"
           element={
             <PageWrapper bgGradient="linear-gradient(to left, #ffecd2, #fcb69f)">
-              <UserProfile />
+              <YourEvents />
             </PageWrapper>
           }
         />
