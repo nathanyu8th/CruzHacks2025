@@ -64,9 +64,9 @@ const CreateEvent: React.FC = () => {
           <button className="nav-button" onClick={() => navigate('/create')}>
             create an event
           </button>
-          <button className="nav-button" onClick={() => navigate('/your-events')}>
+          {/* <button className="nav-button" onClick={() => navigate('/your-events')}>
             your events
-          </button>
+          </button> */}
           <button className="nav-button profile-icon" onClick={() => navigate('/profile')}>
             👤
           </button>

@@ -112,12 +112,12 @@ const EventDashboard: React.FC = () => {
                     >
                         create an event
                     </button>
-                    <button
+                    {/* <button
                         className="nav-button"
                         onClick={() => navigate("/profile")}
                     >
                         your events
-                    </button>
+                    </button> */}
                     <button
                         className="nav-button profile-icon"
                         onClick={() => navigate("/profile")}

@@ -99,12 +99,12 @@ const RSVPPage: React.FC = () => {
           <button className="nav-button" onClick={() => navigate("/create")}>
             create an event
           </button>
-          <button
+          {/* <button
             className="nav-button"
             onClick={() => navigate("/your-events")}
           >
             your events
-          </button>
+          </button> */}
           <button className="nav-button" onClick={() => navigate("/profile")}>
             👤
           </button>
