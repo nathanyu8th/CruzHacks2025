@@ -124,7 +124,13 @@ const YourEvents: React.FC = () => {
                       <p>{formattedTime}</p>
                     </div>
                     <div className="tiles-row">
-                      <div className="tile">Generate code</div>
+                      {evt.IsPrivate && (
+                        <div className="tile" onClick={()=> (
+                          navigator.clipboard.writeText(evt.id)
+                        )}>
+                          Generate code (Click to Copy Code)
+                        </div>
+                      )}
                       <div className="tile" onClick={() => toggleRSVP(evt.id)}>
                         Attendance stats
                       </div>
