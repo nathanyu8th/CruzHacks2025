@@ -1,0 +1,118 @@
+.rsvp-wrapper {
+    height: 100vh;
+    width: 100vw;
+    background: linear-gradient(to bottom, #fefee1, #c1dffc);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+  
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background-color: black;
+    color: white;
+  }
+  
+  .nav-title {
+    font-weight: bold;
+    font-size: 1.5rem;
+  }
+  
+  .nav-buttons {
+    display: flex;
+    gap: 2rem;
+  }
+  
+  .nav-button {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+  }
+  
+  .nav-button:hover {
+    text-decoration: underline;
+  }
+  
+  .rsvp-title {
+    padding: 2rem 3rem 1rem;
+  }
+  
+  .rsvp-title h1 {
+    font-size: 3rem;
+    font-weight: bold;
+    margin-bottom: 0.3rem;
+  }
+  
+  .rsvp-list {
+    padding: 1rem 3rem 3rem;
+    overflow-y: auto;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+  
+  .code-input {
+    margin-top: 1rem;
+    width: 100%;
+    font-size: 1rem;
+    border: none;
+    border-bottom: 2px solid #000;
+    padding: 0.5rem 0;
+    background: none;
+    outline: none;
+  }
+  
+  .contact-link {
+    margin-top: 2rem;
+    font-weight: bold;
+    text-decoration: underline;
+    cursor: pointer;
+  }
+/* Yellow card — ensure text is black */
+.yellow-card {
+    background-color: #ffc700;
+    flex: 1 1 30%;
+    padding: 1.5rem;
+    border-radius: 1rem;
+    box-shadow: 4px 4px 0 #ccc;
+    font-weight: bold;
+    color: black; /* Make all text inside yellow card black */
+  }
+  
+  /* Check-in card — match height of yellow card */
+  .checkin-card {
+    background-color: white;
+    flex: 1 1 30%;
+    padding: 1.5rem;
+    border-radius: 1rem;
+    box-shadow: 4px 4px 0 #ccc;
+    color: black;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* pushes contact link to bottom */
+  }
+  
+  /* Optional: Match height with yellow card */
+  .rsvp-row {
+    display: flex;
+    gap: 2rem;
+    align-items: stretch; /* ensure both cards are equal height */
+    flex-wrap: wrap;
+  }
+  
+  /* Heading text - force to black */
+  .rsvp-title h1 {
+    font-size: 3rem;
+    font-weight: bold;
+    margin-bottom: 0.3rem;
+    color: black;
+  }  
+
+  

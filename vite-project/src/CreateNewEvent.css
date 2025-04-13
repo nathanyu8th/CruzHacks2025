@@ -1,0 +1,113 @@
+/* Base page styling */
+.page-wrapper {
+    background: #fefee1;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+  }
+  
+  /* NAVBAR */
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem 2rem;
+    background: black;
+    color: white;
+    align-items: center;
+  }
+  
+  .nav-title {
+    font-weight: bold;
+    font-size: 1.5rem;
+  }
+  
+  .nav-buttons {
+    display: flex;
+    gap: 1.5rem;
+  }
+  
+  .nav-button {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1rem;
+    cursor: pointer;
+  }
+  
+  .nav-button:hover {
+    text-decoration: underline;
+  }
+  
+  .profile-icon {
+    font-size: 1.2rem;
+  }
+  
+  /* CREATE EVENT CONTAINER */
+  .create-event-container {
+    max-width: 700px;
+    margin: 2rem auto;
+    padding: 0 2rem;
+  }
+  
+  .create-event-container h1 {
+    margin-bottom: 1.5rem;
+    font-size: 2.5rem;
+    text-align: center;
+    color: #000;
+  }
+  
+  /* FORM STYLES */
+  .create-event-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+  
+  .create-event-form label {
+    font-weight: bold;
+    color: #000;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .create-event-form input[type="text"],
+  .create-event-form input[type="date"],
+  .create-event-form input[type="time"] {
+    background-color: #ccc; /* Grey boxes */
+    color: #000;            /* Black text */
+    font-size: 1rem;
+    padding: 0.5rem;
+    border-radius: 6px;
+    border: 1px solid #888;
+  }
+  
+  /* Specific checkbox label styling */
+  .checkbox-label {
+    flex-direction: row;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  
+  /* Button container to center the button */
+  .button-container {
+    display: flex;
+    justify-content: center;
+  }
+  
+  /* CREATE BUTTON */
+  .create-button {
+    background-color: #0f1e25;
+    color: #fff;
+    border: none;
+    padding: 0.6rem 1.2rem;
+    border-radius: 6px;
+    font-size: 1rem;
+    cursor: pointer;
+  }
+  
+  .create-button:hover {
+    opacity: 0.9;
+  }
+  

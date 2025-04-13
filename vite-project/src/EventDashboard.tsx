@@ -18,6 +18,7 @@ const EventDashboard: React.FC = () => {
   const navigate = useNavigate();
   const [events, setEvents] = useState<any[]>([]);
   const [user, setUser] = useState<any>(null);
+  const [selectedEvent, setSelectedEvent] = useState<any | null>(null);
 
   // check auth state
   useEffect(() => {
@@ -81,8 +82,8 @@ const EventDashboard: React.FC = () => {
       <div className="navbar">
         <div className="nav-title">ganc</div>
         <div className="nav-buttons">
-          <button className="nav-button" onClick={() => navigate('/events')}>events</button>
-          <button className="nav-button" onClick={() => navigate('/rsvps')}>rsvps</button>
+          <button className="nav-button" onClick={() => navigate('/dashboard')}>events</button>
+          <button className="nav-button" onClick={() => navigate('/myrsvps')}>rsvps</button>
           <button className="nav-button" onClick={() => navigate('/create')}>create an event</button>
           <button className="nav-button" onClick={() => navigate('/your-events')}>your events</button>
           <button className="nav-button profile-icon" onClick={() => navigate('/profile')}>👤</button>
@@ -91,7 +92,7 @@ const EventDashboard: React.FC = () => {
 
       {/* WELCOME SECTION */}
       <div className="welcome-section">
-        <h1>Welcome <span className="highlight">{user?.displayName || 'there'}!</span></h1>
+        <h1>Welcome <br></br><span className="highlight">{user?.displayName || 'there'}!</span></h1>
         <div className="search-bar">
           <input type="text" placeholder="search for an event" />
           <span className="search-icon">🔍</span>
@@ -106,7 +107,7 @@ const EventDashboard: React.FC = () => {
           events.map((event) => (
             <div className="event-card" key={event.id}>
               <h3>{event.EventName}</h3>
-              <p className="club">{event.ClubName || 'Unknown Club'}</p>
+              <p className="club">{event.Organization || 'Unknown Club'}</p>
               <p>{event.Location}</p>
               <p>
                 {event.Date?.toLocaleString('en-US', {
@@ -129,16 +130,38 @@ const EventDashboard: React.FC = () => {
                   RSVP
                 </button>
                 <button
-                  onClick={() => handleDelete(event.id)}
-                  className="delete-button"
+                    onClick={() => setSelectedEvent(event)}
+                    className="info-button"
                 >
-                  Delete
+                    Info
                 </button>
               </div>
             </div>
           ))
         )}
       </div>
+      {selectedEvent && (
+                <div className="modal-backdrop" onClick={() => setSelectedEvent(null)}>
+                    <div className="modal-content" onClick={(e) => e.stopPropagation()}>
+                        <h2>{selectedEvent.EventName}</h2>
+                        <p><strong>Hosted by: </strong>{selectedEvent.Organization || 'Unknown Club'}</p>
+                        <p><strong>Description: </strong>{selectedEvent.EventDescription || 'No description provided.'}</p>
+                        <p><strong>Location:</strong> {selectedEvent.Location || 'TBD'}</p>
+                        <p><strong>Date:</strong> {selectedEvent.Date?.toLocaleString("en-US", {
+                                        weekday: "short",
+                                        year: "numeric",
+                                        month: "long",
+                                        day: "numeric",
+                                        hour: "numeric",
+                                        minute: "2-digit",
+                                    }) || 'TBA'}</p>
+                    
+                        <button onClick={() => setSelectedEvent(null)} className="close-button">
+                            Close
+                        </button>
+                    </div>
+                </div>
+            )}
     </div>
   );
 };

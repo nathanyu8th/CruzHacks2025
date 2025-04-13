@@ -13,6 +13,8 @@ import SignUpPage from './SignUpPage'
 import EventDashboard from './EventDashboard';
 import MyRSVPEvents from './MyRSVPEvents';
 import JoinPrivate  from './JoinPrivate';
+import RSVPEvents from './RSVPEvents';
+import CreateNewEvent from './CreateNewEvent';
 
 function App() {
   const [events, setEvents] = useState<any[]>([]);
@@ -72,7 +74,7 @@ function App() {
           path="/myrsvps"
           element={
             <PageWrapper bgGradient="linear-gradient(to top, #a1c4fd, #c2e9fb)">
-              <MyRSVPEvents />
+              <RSVPEvents />
             </PageWrapper>
           }
         />
@@ -88,7 +90,8 @@ function App() {
           path="/create"
           element={
             <PageWrapper bgGradient="linear-gradient(to top right, #fddb92, #d1fdff)">
-              <CreateEvent events={events} setEvents={setEvents} />
+              {/*<CreateEvent events={events} setEvents={setEvents} />*/}
+              <CreateNewEvent />
             </PageWrapper>
           }
         />
