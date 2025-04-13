@@ -8,6 +8,9 @@ import UserProfile from './UserProfile';
 import EditProfile from './EditProfile';
 import CreateEvent from './CreateEvent';
 import PageWrapper from './PageWrapper';
+import LoginPage from './LoginPage';
+import SignUpPage from './SignUpPage'
+import EventDashboard from './EventDashboard';
 
 function App() {
   const [events, setEvents] = useState<any[]>([]);
@@ -27,7 +30,7 @@ function App() {
           path="/signup"
           element={
             <PageWrapper bgGradient="linear-gradient(to right, #fbc2eb, #a6c1ee)">
-              <SignUpForm />
+              <SignUpPage />
             </PageWrapper>
           }
         />
@@ -35,7 +38,7 @@ function App() {
           path="/login"
           element={
             <PageWrapper bgGradient="linear-gradient(to right, #fdfbfb, #ebedee)">
-              <Login />
+              <LoginPage />
             </PageWrapper>
           }
         />
@@ -43,7 +46,7 @@ function App() {
           path="/dashboard"
           element={
             <PageWrapper bgGradient="linear-gradient(to bottom, #dfe9f3, #ffffff)">
-              <Dashboard />
+              <EventDashboard />
             </PageWrapper>
           }
         />
