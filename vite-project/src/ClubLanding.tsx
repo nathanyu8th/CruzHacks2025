@@ -9,7 +9,7 @@ const ClubLanding: React.FC = () => {
     <div style={{ display: 'flex', flexDirection: 'column', height: '100vh' }}>
       {/* NAVBAR */}
       <div className="navbar">
-        <div className="nav-title">ganc</div>
+        <div className="nav-title"><a href ="Home.tsx">ganc</a></div>
         <div className="nav-buttons">
           <button className="nav-button" onClick={() => navigate('/about')}>about</button>
           <button className="nav-button" onClick={() => navigate('/get-started')}>get started</button>

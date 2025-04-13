@@ -14,11 +14,13 @@ import {
     arrayUnion,
 } from "firebase/firestore";
 
+// use state
 const EventDashboard: React.FC = () => {
     const navigate = useNavigate();
     const [events, setEvents] = useState<any[]>([]);
     const [user, setUser] = useState<any>(null);
     const [searchTerm, setSearchTerm] = useState("");
+    const [selectedEvent, setSelectedEvent] = useState<any | null>(null);
 
     // check auth state
     useEffect(() => {
@@ -118,10 +120,13 @@ const EventDashboard: React.FC = () => {
             {/* WELCOME SECTION */}
             <div className="welcome-section">
                 <h1>
-                    Welcome{" "}
+                    Welcome
+                    <h1>
+                    {" "}
                     <span className="highlight">
                         {user?.displayName || "there"}!
                     </span>
+                    </h1>
                 </h1>
                 <div className="search-bar">
                     <input
@@ -176,11 +181,39 @@ const EventDashboard: React.FC = () => {
                                     >
                                         RSVP
                                     </button>
+                                    <button
+                                        onClick={() => setSelectedEvent(event)}
+                                        className="info-button"
+                                    >
+                                        Info
+                                    </button>
                                 </div>
                             </div>
                         ))
                 )}
             </div>
+            {selectedEvent && (
+                <div className="modal-backdrop" onClick={() => setSelectedEvent(null)}>
+                    <div className="modal-content" onClick={(e) => e.stopPropagation()}>
+                        <h2>{selectedEvent.EventName}</h2>
+                        <p><strong>Hosted by: </strong>{selectedEvent.ClubName || 'Unknown Club'}</p>
+                        <p>{selectedEvent.EventDescription || 'No description provided.'}</p>
+                        <p><strong>Location:</strong> {selectedEvent.Location || 'TBD'}</p>
+                        <p><strong>Date:</strong> {selectedEvent.Date?.toLocaleString("en-US", {
+                                        weekday: "short",
+                                        year: "numeric",
+                                        month: "long",
+                                        day: "numeric",
+                                        hour: "numeric",
+                                        minute: "2-digit",
+                                    }) || 'TBA'}</p>
+                    
+                        <button onClick={() => setSelectedEvent(null)} className="close-button">
+                            Close
+                        </button>
+                    </div>
+                </div>
+            )}
         </div>
     );
 };
