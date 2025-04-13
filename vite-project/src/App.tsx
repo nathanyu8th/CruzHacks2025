@@ -1,23 +1,32 @@
-import { useState } from 'react';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import ClubLanding from './ClubLanding';
-import SignUpForm from './SignUpForm';
-import Login from './Login';
-import Dashboard from './Dashboard';
-import UserProfile from './UserProfile';
-import EditProfile from './EditProfile';
-import CreateEvent from './CreateEvent';
-import PageWrapper from './PageWrapper';
+
 import LoginPage from './LoginPage';
 import SignUpPage from './SignUpPage'
 import EventDashboard from './EventDashboard';
+<<<<<<< HEAD
 import MyRSVPEvents from './MyRSVPEvents';
 import JoinPrivate  from './JoinPrivate';
 import RSVPEvents from './RSVPEvents';
 import CreateNewEvent from './CreateNewEvent';
+=======
+
+import { useState } from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import ClubLanding from "./ClubLanding";
+import SignUpForm from "./SignUpForm";
+import Login from "./Login";
+import Dashboard from "./Dashboard";
+import UserProfile from "./UserProfile";
+import EditProfile from "./EditProfile";
+import CreateEvent from "./CreateEvent";
+import PageWrapper from "./PageWrapper";
+import MyRSVPEvents from "./MyRSVPEvents";
+import JoinPrivate from "./JoinPrivate";
+
+>>>>>>> main
 
 function App() {
-  const [events, setEvents] = useState<any[]>([]);
+    const [events, setEvents] = useState<any[]>([]);
+
 
   return (
     <BrowserRouter>
