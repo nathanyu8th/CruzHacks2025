@@ -40,13 +40,15 @@ const SignUpPage: React.FC = () => {
     <div className="page-wrapper">
       {/* NAVBAR */}
       <div className="navbar">
-        <div className="nav-title">ganc</div>
-        <div className="nav-buttons">
-          <button className="nav-button" onClick={() => navigate('/about')}>about</button>
-          <button className="nav-button" onClick={() => navigate('/get-started')}>get started</button>
+      <button className="nav-title" onClick={() => navigate("/")}>
+      ganc
+      </button>
+      <div className="nav-buttons">
+          {/* <button className="nav-button" onClick={() => navigate('/about')}>about</button> */}
+          <button className="nav-button" onClick={() => navigate('/signup')}>get started</button>
           <button className="nav-button" onClick={() => navigate('/login')}>login</button>
         </div>
-      </div>
+    </div>
 
       {/* SIGNUP FORM */}
       <div className="signup-container">
