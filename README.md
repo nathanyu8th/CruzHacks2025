@@ -25,6 +25,6 @@ How to create a website.
 
 ## What's next for ganc
 Future plans for ganc include:
--Separate accounts for organizations and individual community members
--Analytics dashboards to help organizations understand member engagement and plan better events
--Expanded features to help clubs track attendance, collect feedback, and stay organized
+- Separate accounts for organizations and individual community members
+* Analytics dashboards to help organizations understand member engagement and plan better events
++ Expanded features to help clubs track attendance, collect feedback, and stay organized
